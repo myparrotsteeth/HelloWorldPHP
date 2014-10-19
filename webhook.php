@@ -64,5 +64,5 @@ function run() {
     die("done " . mktime());
   }
 }
-}
+
 ?>
