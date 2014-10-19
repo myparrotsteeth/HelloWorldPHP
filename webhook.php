@@ -25,7 +25,19 @@ $BRANCH             = "master";
 
 error_log("At least I was ran.");
 
-if ( $_POST['payload'] ) {
+try {
+    if (!isset($_POST['payload'])) {
+        echo "Works fine.";
+    } else {
+        run();
+    }
+} catch ( Exception $e ) {
+    $msg = $e->getMessage();
+    mail("jamiemactulloch@gmail.com", $msg, ''.$e);
+}
+
+function run() {
+//if ( $_POST['payload'] ) {
   // Only respond to POST requests from Github
   
   error_log("Got into the parent IF statement.");
@@ -52,5 +64,5 @@ if ( $_POST['payload'] ) {
     die("done " . mktime());
   }
 }
-
+}
 ?>
