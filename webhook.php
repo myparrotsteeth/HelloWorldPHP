@@ -17,7 +17,7 @@
 **/
 
 // Set Variables
-$LOCAL_ROOT         = "~";
+$LOCAL_ROOT         = "/var/www/html";
 $LOCAL_REPO_NAME    = "HelloWorldPHP";
 $LOCAL_REPO         = "{$LOCAL_ROOT}/{$LOCAL_REPO_NAME}";
 $REMOTE_REPO        = "git@github.com:myparrotsteeth/HelloWorldPHP.git";
