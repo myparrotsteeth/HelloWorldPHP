@@ -23,19 +23,31 @@ $LOCAL_REPO         = "{$LOCAL_ROOT}/{$LOCAL_REPO_NAME}";
 $REMOTE_REPO        = "git@github.com:myparrotsteeth/HelloWorldPHP.git";
 $BRANCH             = "master";
 
+error_log("At least I was ran.");
+
 if ( $_POST['payload'] ) {
   // Only respond to POST requests from Github
   
+  error_log("Got into the parent IF statement.");
+  
   if( file_exists($LOCAL_REPO) ) {
+    
+    error_log("Local repo exists..");
     
     // If there is already a repo, just run a git pull to grab the latest changes
     shell_exec("cd {$LOCAL_REPO} && git pull");
+    
+    error_log("And I'm supposed to have run git clone now.");
 
     die("done " . mktime());
   } else {
     
+    error_log("Local repo does not exist.");
+    
     // If the repo does not exist, then clone it into the parent directory
     shell_exec("cd {$LOCAL_ROOT} && git clone {$REMOTE_REPO}");
+    
+    error_log("And I'm supposed to have run git clone now.");
     
     die("done " . mktime());
   }
